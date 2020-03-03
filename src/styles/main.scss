@@ -1,0 +1,41 @@
+$primary: #2b2b28;
+$secondary: #10100f;
+$accent: #ff6000;
+$text_primary: white;
+$text_secondary: #878786;
+$text_teritary: #e0e0e0;
+
+$xs: 600px;
+$sm: 960px;
+$md: 1264px;
+$lg: 1904px;
+
+#app {
+    font-family: Titillium, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+}
+
+.toolbar-link {
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 0.7px;
+    color: white;
+    transition: .5s;
+    &:hover {
+        color: $accent;
+    }
+    @media (max-width: $lg) {
+        font-size: 14px;
+    }
+}
+
+.toolbar-link-selected {
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 0.7px;
+    color: $accent;
+}

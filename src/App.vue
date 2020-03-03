@@ -1,28 +1,59 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app id="app">
+    <div>
+      <v-fade-transition mode="out-in">
+        <main>
+          <router-view />
+        </main>
+      </v-fade-transition>
+      <v-btn
+          v-scroll="onScroll"
+          v-show="isScrolling"
+          fab
+          dark
+          fixed
+          bottom
+          right
+          color="accent"
+          @click="toTop"
+      >
+        <v-icon>mdi-arrow-up</v-icon>
+      </v-btn>
+    </div>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+  // import TokenService from './core/token.service';
+  import "./styles/main.scss"
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  export default {
+    name: 'App',
+    data() {
+      return {
+        isScrolling: false,
+      }
+    },
+    methods: {
+      onScroll() {
+        this.isScrolling = (window.pageYOffset ||
+            document.documentElement.scrollTop || 0) > 20;
+      },
+      toTop () {
+        this.$vuetify.goTo(0)
+      }
+    },
+    created() {
+      // let token = TokenService.getToken();
+      //
+      // if (token === null || token === '') {
+      //   this.$router.push({ name: "login" });
+      // } else {
+      //   this.$router.push({ name: "dashboard" });
+      // }
+    },
+  };
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style scoped lang="scss">
 </style>
