@@ -11,7 +11,7 @@
   "dependencies": {
     "axios": "^0.19.0",
     "core-js": "^3.6.4",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "ken-burns-carousel": "^0.2.5",
     "material-design-icons-iconfont": "^5.0.1",
     "sass": "^1.23.3",
